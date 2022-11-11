@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    
+    <session-factory>
+        
+        <!-- Datos de conexión con la base de datos- Driver, URL, user, password -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/accesodatos</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+
+        <!-- Tamaño de la Connection Pool-->
+        <property name="connection.pool_size">1</property>
+
+        <!-- Dialecto de la base de datos específica: MySQL -->
+  		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+  		
+        <!-- Las sesiones con la base de datos se asocian al hilo de ejecución actual -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Opción para depuración: muestra las SQL queries generadas -->
+        <property name="show_sql">true</property>
+
+        <!-- Elimina y crea la BD al iniciar -->
+         <!-- <property name="hbm2ddl.auto">create</property>-->
+		
+		<!-- Clases que contienen las anotaciones de mapeo -->
+       <!-- <mapping class="entities.XXXXX" />-->
+    </session-factory>
+
+</hibernate-configuration>
