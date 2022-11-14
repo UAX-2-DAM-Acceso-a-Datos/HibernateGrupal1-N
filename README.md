@@ -35,4 +35,4 @@ Acciones para entidad Propietario:
 
 ## Autores ✒️
 
-* **Nombre** - [Nombre](https://github.com/xxx)
+* **Eduardo** - [Eduardo](https://github.com/EDD-G5)
