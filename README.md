@@ -35,4 +35,7 @@ Acciones para entidad Propietario:
 
 ## Autores ✒️
 
-* **Sergio** - [Nombre](https://github.com/xxx)
+* **Eduardo** - [Eduardo](https://github.com/EDD-G5)
+* **Alvaro** - [Alvaro](https://github.com/Athernok)
+* **Sergi** - [Sergi](https://github.com/Slacllop)
+* **Gonxo** - [Gonxo](https://github.com/Gonxos)
