@@ -29,7 +29,7 @@
          <!-- <property name="hbm2ddl.auto">create</property>-->
 		
 		<!-- Clases que contienen las anotaciones de mapeo -->
-        <mapping class="entities.Cuenta" />
+       <!-- <mapping class="entities.XXXXX" />-->
     </session-factory>
 
 </hibernate-configuration>
