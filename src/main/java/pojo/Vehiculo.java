@@ -12,9 +12,6 @@ import javax.persistence.Table;
 public class Vehiculo {
 	
 	@Id
-	@Column(name = "dni")
-	private String dni;
-	
 	@Column(name = "matricula")
 	private String matricula;
 	
@@ -31,14 +28,6 @@ public class Vehiculo {
 	public Vehiculo() {
 		
 	} 
-
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
 
 	public String getMatricula() {
 		return matricula;
