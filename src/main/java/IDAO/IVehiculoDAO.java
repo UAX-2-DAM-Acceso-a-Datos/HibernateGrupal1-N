@@ -1,5 +1,5 @@
 package IDAO;
 
-public class IVehiculoDAO {
+public interface IVehiculoDAO {
 
 }

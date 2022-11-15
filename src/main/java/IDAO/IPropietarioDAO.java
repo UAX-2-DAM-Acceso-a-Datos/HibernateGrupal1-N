@@ -1,5 +1,5 @@
 package IDAO;
 
-public class IPropietarioDAO {
+public interface IPropietarioDAO {
 
 }
