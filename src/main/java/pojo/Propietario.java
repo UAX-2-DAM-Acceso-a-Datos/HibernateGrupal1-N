@@ -26,7 +26,7 @@ import javax.persistence.Column;
 		
 		public Propietario() {
 			
-		}
+		} 
 
 		public String getDni() {
 			return dni;
