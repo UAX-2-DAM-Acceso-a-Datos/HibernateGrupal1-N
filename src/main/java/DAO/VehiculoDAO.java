@@ -1,78 +1,24 @@
 package DAO;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import IDAO.IVehiculoDAO;
+import pojo.Vehiculo;
 
-@Entity
-@Table(name = "Vehiculos")
-public class VehiculoDAO {
-	
-	@Id
-	@Column(name = "dni")
-	private String dni;
-	
-	@Column(name = "matricula")
-	private String matricula;
-	
-	@Column(name = "marca")
-	private String marca;
-	
-	@Column(name = "modelo")
-	private String modelo;
-	
-	@ManyToOne
-	@JoinColumn(name = "propietario", nullable = false)
-	private PropietarioDAO propietario;
-	
-	public VehiculoDAO() {
+public class VehiculoDAO implements IVehiculoDAO{
+
+	public void addVehiculo(Vehiculo v) {
 		
 	}
 
-	public String getDni() {
-		return dni;
+	public void updateVehiculo(Vehiculo v) {
+		
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
+	public void deleteVehiculo(String matricula) {
+		
 	}
 
-	public String getMatricula() {
-		return matricula;
+	public void getAllVehiculo() {
+		
 	}
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
-
-	public String getMarca() {
-		return marca;
-	}
-
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
-
-	public String getModelo() {
-		return modelo;
-	}
-
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
-
-	public PropietarioDAO getPropietario() {
-		return propietario;
-	}
-
-	public void setPropietario(PropietarioDAO propietario) {
-		this.propietario = propietario;
-	}
-	
-	
-	
 	
 }
