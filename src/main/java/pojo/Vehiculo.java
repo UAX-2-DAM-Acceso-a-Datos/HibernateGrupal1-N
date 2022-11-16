@@ -29,6 +29,10 @@ public class Vehiculo {
 		
 	} 
 
+	public Vehiculo(String matricula2) {
+		matricula = matricula2;
+	}
+
 	public String getMatricula() {
 		return matricula;
 	}
