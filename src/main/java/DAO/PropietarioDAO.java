@@ -6,9 +6,12 @@ import javax.persistence.Column;
 	import javax.persistence.ManyToOne;
 	import javax.persistence.Table;
 
+import IDAO.IPropietarioDAO;
+import pojo.Propietario;
+
 	@Entity
 	@Table(name = "Propietario")
-	public class PropietarioDAO {
+	public class PropietarioDAO implements IPropietarioDAO{
 
 		@Id
 		@Column(name = "dni")
@@ -58,6 +61,26 @@ import javax.persistence.Column;
 
 		public void setVehiuclo(VehiculoDAO vehiuclo) {
 			this.vehiuclo = vehiuclo;
+		}
+
+		public void addPropietario(Propietario p) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void updatePropietario(Propietario p) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void deletePropietario(Propietario p) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void getAllPropietario() {
+			// TODO Auto-generated method stub
+			
 		}
 	
 }
