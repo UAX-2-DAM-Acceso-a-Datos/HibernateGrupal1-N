@@ -29,7 +29,14 @@ public class VehiculoDAO implements IVehiculoDAO{
 	}
 
 	public List<Vehiculo> getAllVehiculos() {
-		
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		session.beginTransaction();
+		List<Vehiculo> vs = session.createQuery("From vehiculos").list();
+		for (Vehiculo v : vs) {
+			System.out.println(v);
+		}
+		session.close();
+		return vs;
 	}
 	
 }
