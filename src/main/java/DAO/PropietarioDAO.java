@@ -1,12 +1,13 @@
 package DAO;
+
 import java.util.List;
 
 import javax.persistence.Column;
-	import javax.persistence.Entity;
-	import javax.persistence.Id;
-	import javax.persistence.JoinColumn;
-	import javax.persistence.ManyToOne;
-	import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.Session;
 
@@ -15,92 +16,69 @@ import pojo.Propietario;
 import pojo.Vehiculo;
 import utils.HibernateUtils;
 
-	@Entity
-	@Table(name = "Propietario")
-	public class PropietarioDAO implements IPropietarioDAO{
 
-		@Id
-		@Column(name = "dni")
-		private String dni;
-
-		@Column(name = "nombre")
-		private String nombre;
-
-		@Column(name = "apellido")
-		private String apellido;
-
-		@ManyToOne
-		@JoinColumn(name = "vehiculo", nullable = false)
-		private VehiculoDAO vehiuclo;
-		
-		public PropietarioDAO() {
-			
-		}
-
-		public String getDni() {
-			return dni;
-		}
-
-		public void setDni(String dni) {
-			this.dni = dni;
-		}
-
-		public String getNombre() {
-			return nombre;
-		}
-
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
-
-		public String getApellido() {
-			return apellido;
-		}
-
-		public void setApellido(String apellido) {
-			this.apellido = apellido;
-		}
-
-		public VehiculoDAO getVehiuclo() {
-			return vehiuclo;
-		}
-
-		public void setVehiuclo(VehiculoDAO vehiuclo) {
-			this.vehiuclo = vehiuclo;
-		}
-
-		public void addPropietario(Propietario p) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void updatePropietario(Propietario p) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void deletePropietario(String dni) {
-			Session session = HibernateUtils.getSessionFactory().openSession();
-			Propietario deleted = new Propietario(dni);
-			
-			session.delete(deleted);
-
-			session.beginTransaction().commit();
-			session.close();
-			
-		}
-
-		public List<Propietario> getAllPropietario() {
-			Session session = HibernateUtils.getSessionFactory().openSession();
-			session.beginTransaction();
-			List<Propietario> vs = session.createQuery("From vehiculos").list();
-			for (Propietario v : vs) {
-				System.out.println(v);
-			}
-			session.close();
-			return vs;
-			
-		}
+public class PropietarioDAO implements IPropietarioDAO {
 
 	
+	// Método para añadir un propietario en la BBDD
+	public void addPropietario(Propietario p) {
+		Session session = HibernateUtils.getSessionFactory().openSession(); // abrimos la conexión
+
+		session.save(p); // declaramos la query de inserción que mete el objeto que recibe (p)
+
+		session.beginTransaction().commit(); // se ejecuta la query y se guardan los cambios
+		session.close(); // se cierra la conexión
+
+	}
+
+	// Método para actualizar un propietario en la BBDD
+	public void updatePropietario(Propietario p) {
+		Session session = HibernateUtils.getSessionFactory().openSession(); // abrimos la conexión
+		Propietario updated = getPropietarioByDni(p.getDni()); // creamos un objeto Propietario vacio
+		
+		updated.setDni(p.getDni()); // Le metemos los valores del objeto anterior para que se actualice con un nuevo objeto
+		updated.setNombre(p.getNombre());
+		updated.setApellido(p.getApellido());
+		
+		session.update(p); // declaramos la query de actualización que mete el nuevo objeto
+
+		session.beginTransaction().commit(); // se ejecuta la query y se guardan los cambios
+		session.close(); // se cierra la conexión
+
+	}
+
+	// Método para eliminar un propietario en la BBDD
+	public void deletePropietario(String dni) {
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		Propietario deleted = new Propietario(dni);
+
+		session.delete(deleted);
+
+		session.beginTransaction().commit();
+		session.close();
+
+	}
+
+	// Método para obtener todos los propietarios en la BBDD
+	public List<Propietario> getAllPropietario() {
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		session.beginTransaction();
+		List<Propietario> vs = session.createQuery("From vehiculos").list();
+		for (Propietario v : vs) {
+			System.out.println(v);
+		}
+		session.close();
+		return vs;
+
+	}
+
+	//Método para obetener de la BBDD un propietario con un dni específico
+    private Propietario getPropietarioByDni(String dni) {
+        Propietario p = null; // se crea un objeto propietario null
+        Session session = HibernateUtils.getSessionFactory().openSession(); // se abre la conexión
+        session.beginTransaction(); // se ejecuta la query para obtener resultados
+        p = session.get(Propietario.class, dni); // metemos el valor resultado filtrando por el dni en un obeto
+        session.close(); // cerramos la conexión
+        return p; // devolvemos el objeto
+    }
 }
