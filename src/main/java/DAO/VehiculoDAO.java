@@ -11,31 +11,11 @@ import utils.HibernateUtils;
 public class VehiculoDAO implements IVehiculoDAO{
 
 	public void addVehiculo(Vehiculo v) {
-			
-		Session session = HibernateUtils.getSessionFactory().openSession();
-        session.beginTransaction();
-        
-        session.save(v);
-        session.getTransaction().commit();
-        
-        session.close();
-	        
-			
+		
 	}
 
 	public void updateVehiculo(Vehiculo v) {
-			
-		Session session = HibernateUtils.getSessionFactory().openSession();
-        Vehiculo mod = getVehiculoByMatr(v.getMatricula());
-        mod.setMarca(v.getMarca());
-        mod.setModelo(v.getModelo());
-        mod.setPropietario(v.getPropietario());
-
-        session.update(mod);
-        session.beginTransaction().commit();
-
-        session.close();
-			
+		
 	}
 
 	public void deleteVehiculo(String Matricula) {
@@ -58,15 +38,5 @@ public class VehiculoDAO implements IVehiculoDAO{
 		session.close();
 		return vs;
 	}
-	
-	private Vehiculo getVehiculoByMatr(String matricula) {
-        Vehiculo v = null;
-        Session session = HibernateUtils.getSessionFactory().openSession();
-        session.beginTransaction();
-        v = session.get(Vehiculo.class, matricula);
-
-        session.close();
-        return v;
-    }
 	
 }
