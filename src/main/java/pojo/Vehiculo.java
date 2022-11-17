@@ -10,27 +10,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Vehiculos")
 public class Vehiculo {
-	
+
 	@Id
 	@Column(name = "matricula")
 	private String matricula;
-	
+
 	@Column(name = "marca")
 	private String marca;
-	
+
 	@Column(name = "modelo")
 	private String modelo;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "propietario", nullable = false)
 	private Propietario propietario;
-	
+
 	public Vehiculo() {
-		
-	} 
+
+	}
 
 	public Vehiculo(String matricula2) {
 		matricula = matricula2;
+	}
+
+	public Vehiculo(String matricula, String marca, String modelo, Propietario propietario) {
+		this.matricula = matricula;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.propietario = propietario;
 	}
 
 	public String getMatricula() {
@@ -64,8 +71,5 @@ public class Vehiculo {
 	public void setPropietario(Propietario propietario) {
 		this.propietario = propietario;
 	}
-	
-	
-	
-	
+
 }

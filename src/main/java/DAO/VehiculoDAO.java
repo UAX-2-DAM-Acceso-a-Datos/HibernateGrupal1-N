@@ -5,11 +5,26 @@ import java.util.List;
 import org.hibernate.Session;
 
 import IDAO.IVehiculoDAO;
+import pojo.Propietario;
 import pojo.Vehiculo;
 import utils.HibernateUtils;
 
 public class VehiculoDAO implements IVehiculoDAO{
-
+	
+	public VehiculoDAO() {
+		Vehiculo v = new Vehiculo("1234BCD", "Audi", "Q3", new Propietario("36236238k"));
+		v.setMatricula("");
+		addVehiculo(new Vehiculo("1234BCD", "Audi", "Q5", new Propietario("36236231P")));
+		System.out.println(getVehiculoByMatr(""));
+		getAllVehiculos();
+		updateVehiculo(v);
+		HibernateUtils.getSessionFactory().close();
+	}
+	
+	public static void main(String[] args) {
+		new VehiculoDAO();
+	}
+	
 	public void addVehiculo(Vehiculo v) {
 			
 		Session session = HibernateUtils.getSessionFactory().openSession();
