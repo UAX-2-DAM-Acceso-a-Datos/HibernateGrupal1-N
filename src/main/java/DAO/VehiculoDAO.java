@@ -29,7 +29,7 @@ public class VehiculoDAO implements IVehiculoDAO{
 	}
 
 	public List<Vehiculo> getAllVehiculos() {
-
+		
 	}
 	
 }
