@@ -67,6 +67,6 @@ public class VehiculoDAO implements IVehiculoDAO{
 
         session.close();
         return v;
-    }
+    } 
 	
 }
