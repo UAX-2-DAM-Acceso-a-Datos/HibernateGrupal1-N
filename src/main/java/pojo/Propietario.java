@@ -27,6 +27,10 @@ import javax.persistence.Column;
 		public Propietario() {
 			
 		} 
+		
+		public Propietario(String dni) {
+			this.dni=dni;
+		} 
 
 		public String getDni() {
 			return dni;

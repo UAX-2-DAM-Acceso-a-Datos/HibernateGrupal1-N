@@ -1,4 +1,6 @@
 package DAO;
+import java.util.List;
+
 import javax.persistence.Column;
 	import javax.persistence.Entity;
 	import javax.persistence.Id;
@@ -6,8 +8,12 @@ import javax.persistence.Column;
 	import javax.persistence.ManyToOne;
 	import javax.persistence.Table;
 
+import org.hibernate.Session;
+
 import IDAO.IPropietarioDAO;
 import pojo.Propietario;
+import pojo.Vehiculo;
+import utils.HibernateUtils;
 
 	@Entity
 	@Table(name = "Propietario")
@@ -73,14 +79,28 @@ import pojo.Propietario;
 			
 		}
 
-		public void deletePropietario(Propietario p) {
-			// TODO Auto-generated method stub
+		public void deletePropietario(String dni) {
+			Session session = HibernateUtils.getSessionFactory().openSession();
+			Propietario deleted = new Propietario(dni);
+			
+			session.delete(deleted);
+
+			session.beginTransaction().commit();
+			session.close();
 			
 		}
 
-		public void getAllPropietario() {
-			// TODO Auto-generated method stub
+		public List<Propietario> getAllPropietario() {
+			Session session = HibernateUtils.getSessionFactory().openSession();
+			session.beginTransaction();
+			List<Propietario> vs = session.createQuery("From vehiculos").list();
+			for (Propietario v : vs) {
+				System.out.println(v);
+			}
+			session.close();
+			return vs;
 			
 		}
+
 	
 }
