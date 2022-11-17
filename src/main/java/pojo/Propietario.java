@@ -1,10 +1,12 @@
 package pojo;
 import javax.persistence.Column;
-	import javax.persistence.Entity;
-	import javax.persistence.Id;
-	import javax.persistence.JoinColumn;
-	import javax.persistence.ManyToOne;
-	import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import jakarta.validation.constraints.*;
 
 	@Entity
 	@Table(name = "Propietario")
@@ -12,12 +14,16 @@ import javax.persistence.Column;
 
 		@Id
 		@Column(name = "dni")
+		@Max(9)
+		@Min(9)
 		private String dni;
-
+		
 		@Column(name = "nombre")
+		@Max(30)
 		private String nombre;
 
 		@Column(name = "apellido")
+		@Max(50)
 		private String apellido;
 
 		@ManyToOne
