@@ -1,81 +1,74 @@
 package pojo;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import jakarta.validation.constraints.*;
 
-@Entity
-@Table(name = "Propietario")
-public class Propietario {
+	@Entity
+	@Table(name = "Propietario")
+	public class Propietario {
 
-	@Id
-	@Column(name = "dni")
-	@Max(9)
-	@Min(9)
-	private String dni;
+		@Id
+		@Column(name = "dni")
+		private String dni;
+		
+		@Column(name = "nombre")
+		@Max(30)
+		private String nombre;
 
-	@Column(name = "nombre")
-	@Max(30)
-	private String nombre;
+		@Column(name = "apellido")
+		@Max(50)
+		private String apellido;
 
-	@Column(name = "apellido")
-	@Max(50)
-	private String apellido;
+		@OneToMany(mappedBy = "propietario")
+		private Set<Vehiculo> vehiculo;
+		
+		public Propietario() {
+			
+		} 
+		
+		public Propietario(String dni) {
+			this.dni=dni;
+		} 
 
-	@ManyToOne
-	@JoinColumn(name = "vehiculo", nullable = false)
-	private Vehiculo vehiuclo;
+		public String getDni() {
+			return dni;
+		}
 
-	public Propietario() {
+		public void setDni(String dni) {
+			this.dni = dni;
+		}
 
-	}
+		public String getNombre() {
+			return nombre;
+		}
 
-	public Propietario(String dni) {
-		this.dni = dni;
-	}
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
 
-	public Propietario(String dni, String nombre, String apellido, Vehiculo vehiuclo) {
-		this.dni = dni;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.vehiuclo = vehiuclo;
-	}
+		public String getApellido() {
+			return apellido;
+		}
 
-	public String getDni() {
-		return dni;
-	}
+		public void setApellido(String apellido) {
+			this.apellido = apellido;
+		}
 
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
+		public Set<Vehiculo> getVehiculo() {
+			return vehiculo;
+		}
 
-	public String getNombre() {
-		return nombre;
-	}
+		public void setVehiculo(Set<Vehiculo> vehiculo) {
+			this.vehiculo = vehiculo;
+		}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public Vehiculo getVehiuclo() {
-		return vehiuclo;
-	}
-
-	public void setVehiuclo(Vehiculo vehiuclo) {
-		this.vehiuclo = vehiuclo;
-	}
-
+	
 }
