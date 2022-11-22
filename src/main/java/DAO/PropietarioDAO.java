@@ -11,49 +11,49 @@ import utils.HibernateUtils;
 public class PropietarioDAO implements IPropietarioDAO {
 
 	// Método para añadir un propietario en la BBDD
-	public void addPropietario(Propietario p) {
-		Session session = HibernateUtils.getSessionFactory().openSession(); // abrimos la conexión
-		// se obtiene el propietario de la bbdd si existe
+	public boolean addPropietario(Propietario p) {
+		boolean success = false;
+		Session session = HibernateUtils.getSessionFactory().openSession();
 		Propietario existente = getPropietarioByDni(p.getDni());
-		// si no existe en la bbdd
 		if (existente == null) {
 			session.save(p); // declaramos la query de inserción que mete el objeto que recibe (p)
 			session.beginTransaction().commit(); // se ejecuta la query y se guardan los cambios
+			success = true;
 		}
-		session.close(); // se cierra la conexión
-
+		session.close();
+		return success;
 	}
 
 	// Método para actualizar un propietario en la BBDD
-	public void updatePropietario(Propietario p) {
+	public boolean updatePropietario(Propietario p) {
+		boolean success = false;
 		Session session = HibernateUtils.getSessionFactory().openSession(); // abrimos la conexión
 		Propietario updated = getPropietarioByDni(p.getDni()); // creamos un objeto Propietario vacio
 		if(updated != null) {
 			updated.setDni(p.getDni()); // Le metemos los valores del objeto anterior para que se actualice con un nuevo
-										// objeto
 			updated.setNombre(p.getNombre());
 			updated.setApellido(p.getApellido());
-	
 			session.update(p); // declaramos la query de actualización que mete el nuevo objeto
-	
-			session.beginTransaction().commit(); // se ejecuta la query y se guardan los cambios
+			session.beginTransaction().commit();
+			success = true;
 		}
-		session.close(); // se cierra la conexión
-
+		session.close();
+		return success;
 	}
 
 	// Método para eliminar un propietario en la BBDD
-	public void deletePropietario(String dni) {
+	public boolean deletePropietario(String dni) {
+		boolean success = false;
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		Propietario deleted = getPropietarioByDni(dni);
 		
 		if(deleted != null) {
 			session.delete(deleted);
+			session.beginTransaction().commit();
+			success = true;
 		}
-
-		session.beginTransaction().commit();
 		session.close();
-
+		return success;
 	}
 
 	// Método para obtener todos los propietarios en la BBDD

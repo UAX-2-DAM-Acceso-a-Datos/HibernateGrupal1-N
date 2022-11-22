@@ -10,7 +10,8 @@ import utils.HibernateUtils;
 
 public class VehiculoDAO implements IVehiculoDAO {
 
-	public void addVehiculo(Vehiculo v) {
+	public boolean addVehiculo(Vehiculo v) {
+		boolean success = false;
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		Vehiculo existente = getVehiculoByMatr(v.getMatricula());
 		if (v.getMatricula() != null) {
@@ -18,11 +19,14 @@ public class VehiculoDAO implements IVehiculoDAO {
 			session.save(v);
 			session.save(v.getPropietario());
 			session.getTransaction().commit();
+			success = true;
 		}
 		session.close();
+		return success;
 	}
 
-	public void updateVehiculo(Vehiculo v) {
+	public boolean updateVehiculo(Vehiculo v) {
+		boolean success = false;
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		Vehiculo mod = getVehiculoByMatr(v.getMatricula());
 		if (mod != null) {
@@ -32,18 +36,23 @@ public class VehiculoDAO implements IVehiculoDAO {
 
 			session.update(mod);
 			session.beginTransaction().commit();
+			success = true;
 		}
 		session.close();
+		return success;
 	}
 
-	public void deleteVehiculo(String Matricula) {
+	public boolean deleteVehiculo(String Matricula) {
+		boolean success = false;
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		Vehiculo deleted = getVehiculoByMatr(Matricula);
 		if (deleted != null) {
 			session.delete(deleted);
 			session.beginTransaction().commit();
+			success = true;
 		}
 		session.close();
+		return success;
 	}
 
 	public List<Vehiculo> getAllVehiculos() {

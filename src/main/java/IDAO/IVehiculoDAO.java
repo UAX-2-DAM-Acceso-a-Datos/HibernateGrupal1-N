@@ -5,8 +5,8 @@ import java.util.List;
 import pojo.Vehiculo;
 
 public interface IVehiculoDAO {
-	void addVehiculo(Vehiculo v);
-	void updateVehiculo(Vehiculo v);
-	void deleteVehiculo(String Matricula);
+	boolean addVehiculo(Vehiculo v);
+	boolean updateVehiculo(Vehiculo v);
+	boolean deleteVehiculo(String Matricula);
 	List<Vehiculo> getAllVehiculos();
 }
