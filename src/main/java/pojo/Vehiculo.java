@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Vehiculos")
+@Table(name = "vehiculos")
 public class Vehiculo {
 	
 	@Id
@@ -26,7 +26,7 @@ public class Vehiculo {
 	private Propietario propietario;
 	
 	public Vehiculo() {
-		
+		super();
 	} 
 
 	public Vehiculo(String matricula2) {
@@ -63,6 +63,12 @@ public class Vehiculo {
 
 	public void setPropietario(Propietario propietario) {
 		this.propietario = propietario;
+	}
+
+	@Override
+	public String toString() {
+		return "Vehiculo [matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo + ", propietario="
+				+ propietario + "]";
 	}
 	
 	
