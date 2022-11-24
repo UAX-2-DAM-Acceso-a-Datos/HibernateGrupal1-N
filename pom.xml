@@ -3,10 +3,13 @@
 	<groupId>com.hibernateplantilla</groupId>
 	<artifactId>HibernatePlantilla</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+<<<<<<< HEAD
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+=======
+>>>>>>> 99d672b358ab2b6a3af812e9e99c9d615b5fca6b
 	<repositories>
 		<repository>
 			<id>maven-eclipse-repo</id>
@@ -22,12 +25,20 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.3.7.Final</version>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99d672b358ab2b6a3af812e9e99c9d615b5fca6b
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>8.0.0.Final</version>
 		</dependency>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99d672b358ab2b6a3af812e9e99c9d615b5fca6b
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -38,6 +49,10 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.44</version>
 		</dependency>
+<<<<<<< HEAD
+=======
+		<!-- https://mvnrepository.com/artifact/com.jgoodies/jgoodies-forms -->
+>>>>>>> 99d672b358ab2b6a3af812e9e99c9d615b5fca6b
 		<dependency>
 			<groupId>com.jgoodies</groupId>
 			<artifactId>jgoodies-forms</artifactId>
@@ -74,12 +89,15 @@
 			<version>3.25.0-GA</version>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+=======
+>>>>>>> 99d672b358ab2b6a3af812e9e99c9d615b5fca6b
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
