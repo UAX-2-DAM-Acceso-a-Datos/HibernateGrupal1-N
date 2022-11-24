@@ -8,10 +8,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import DAO.VehiculoDAO;
+import pojo.Vehiculo;
+
 public class TestVehiculoDao {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		Vehiculo v = new Vehiculo();
+		VehiculoDAO vdao= new VehiculoDAO();
 	}
 
 	@AfterClass
@@ -27,8 +32,19 @@ public class TestVehiculoDao {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testGetAllVehiculos() {
 	}
 
+	@Test
+	public void testDeleteVehiculo() {
+	}
+
+	@Test
+	public void testAddVehiculo() {
+	}
+
+	@Test
+	public void testUpdateVehiculo() {
+
+	}
 }

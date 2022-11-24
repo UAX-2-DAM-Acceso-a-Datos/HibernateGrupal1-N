@@ -8,10 +8,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import DAO.PropietarioDAO;
+import pojo.Propietario;
+
 public class TestPropietarioDao {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		Propietario p = new Propietario();
+		PropietarioDAO pdao = new PropietarioDAO();
 	}
 
 	@AfterClass
@@ -27,8 +32,20 @@ public class TestPropietarioDao {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testGetAllPropietarios() {
+	}
+
+	@Test
+	public void testDeletePropietario() {
+	}
+
+	@Test
+	public void testAddPropietario() {
+	}
+
+	@Test
+	public void testUpdatePropietario() {
+
 	}
 
 }
