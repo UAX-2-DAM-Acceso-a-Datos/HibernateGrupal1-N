@@ -7,22 +7,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 @Entity
 @Table(name = "vehiculos")
 public class Vehiculo {
 	
 	@Id
 	@Column(name = "matricula")
+	@Size(min=7, max=7)
 	private String matricula;
 	
 	@Column(name = "marca")
+	@NotNull
+	@Max(50)
 	private String marca;
 	
 	@Column(name = "modelo")
+	@NotNull
+	@Max(50)
 	private String modelo;
 	
 	@ManyToOne
-	@JoinColumn(name = "propietario")
+	@JoinColumn(name="dni")
 	private Propietario propietario;
 	
 	public Vehiculo() {
