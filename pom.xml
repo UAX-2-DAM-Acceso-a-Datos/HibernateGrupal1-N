@@ -89,15 +89,12 @@
 			<version>3.25.0-GA</version>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-=======
->>>>>>> 99d672b358ab2b6a3af812e9e99c9d615b5fca6b
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
