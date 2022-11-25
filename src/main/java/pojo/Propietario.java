@@ -1,5 +1,5 @@
 package pojo;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,25 +8,30 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 	@Entity
-	@Table(name = "Propietario")
+	@Table(name = "Propietarios")
 	public class Propietario {
 
 		@Id
 		@Column(name = "dni")
+		@Size(min=9, max=9)
 		private String dni;
 		
 		@Column(name = "nombre")
 		@Max(30)
+		@NotNull
 		private String nombre;
 
 		@Column(name = "apellido")
 		@Max(50)
+		@NotNull
 		private String apellido;
 
 		@OneToMany(mappedBy = "propietario")
-		private Set<Vehiculo> vehiculo;
+		private List<Vehiculo> vehiculo;
 		
 		public Propietario() {
 			
@@ -60,11 +65,11 @@ import jakarta.validation.constraints.Max;
 			this.apellido = apellido;
 		}
 
-		public Set<Vehiculo> getVehiculo() {
+		public List<Vehiculo> getVehiculo() {
 			return vehiculo;
 		}
 
-		public void setVehiculo(Set<Vehiculo> vehiculo) {
+		public void setVehiculo(List<Vehiculo> vehiculo) {
 			this.vehiculo = vehiculo;
 		}
 
