@@ -8,6 +8,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -16,6 +17,7 @@ import jakarta.validation.constraints.Size;
 	public class Propietario {
 
 		@Id
+		@NotBlank
 		@Column(name = "dni")
 		@Size(min=9, max=9)
 		private String dni;

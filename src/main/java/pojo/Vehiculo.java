@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -17,6 +18,7 @@ public class Vehiculo {
 	
 	@Id
 	@Column(name = "matricula")
+	@NotBlank
 	@Size(min=7, max=7)
 	private String matricula;
 	
@@ -31,6 +33,7 @@ public class Vehiculo {
 	private String modelo;
 	
 	@ManyToOne
+	@NotBlank
 	@JoinColumn(name="dni")
 	private Propietario propietario;
 	
