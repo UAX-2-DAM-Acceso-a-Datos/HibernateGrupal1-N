@@ -1,6 +1,5 @@
 package pojo;
-import java.util.ArrayList;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,7 +31,7 @@ import jakarta.validation.constraints.Size;
 		private String apellido;
 
 		@OneToMany(mappedBy = "propietario")
-		private ArrayList<Vehiculo> vehiculo;
+		private List<Vehiculo> vehiculo;
 		
 		public Propietario() {
 			
@@ -66,11 +65,11 @@ import jakarta.validation.constraints.Size;
 			this.apellido = apellido;
 		}
 
-		public ArrayList<Vehiculo> getVehiculo() {
+		public List<Vehiculo> getVehiculo() {
 			return vehiculo;
 		}
 
-		public void setVehiculo(ArrayList<Vehiculo> vehiculo) {
+		public void setVehiculo(List<Vehiculo> vehiculo) {
 			this.vehiculo = vehiculo;
 		}
 
