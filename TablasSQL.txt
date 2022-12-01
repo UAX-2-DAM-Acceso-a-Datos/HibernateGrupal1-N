@@ -8,7 +8,7 @@ PRIMARY kEY (dni)
 )ENGINE InnoDB;
 
 CREATE TABLE Vehiculos (
-matricula CHAR(7), 
+matricula VARCHAR(8), 
 marca VARCHAR(30), 
 modelo VARCHAR(50), 
 dni CHAR(9) UNIQUE NOT NULL,

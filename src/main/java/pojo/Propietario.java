@@ -1,9 +1,12 @@
 package pojo;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -31,8 +34,11 @@ import org.hibernate.validator.constraints.NotBlank;
 		@NotNull
 		private String apellido;
 
-		@OneToMany(mappedBy = "propietario")
-		private List<Vehiculo> vehiculo;
+		@OneToMany(mappedBy = "propietario",
+        orphanRemoval = true, //Eliminacion en cascada
+        fetch = FetchType.LAZY,//No haga busquedas recursivas
+        cascade = CascadeType.ALL)
+		private List<Vehiculo> vehiculos;
 		
 		public Propietario() {
 			
@@ -67,11 +73,11 @@ import org.hibernate.validator.constraints.NotBlank;
 		}
 
 		public List<Vehiculo> getVehiculo() {
-			return vehiculo;
+			return vehiculos;
 		}
 
-		public void setVehiculo(List<Vehiculo> vehiculo) {
-			this.vehiculo = vehiculo;
+		public void setVehiculo(List<Vehiculo> vehiculos) {
+			this.vehiculos = vehiculos;
 		}
 
 	

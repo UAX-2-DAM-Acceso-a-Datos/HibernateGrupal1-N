@@ -16,8 +16,8 @@ public class VehiculoDAO implements IVehiculoDAO {
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		if (v.getMatricula() != null) {
 			session.beginTransaction();
-			session.save(v);
 			session.save(v.getPropietario());
+			session.save(v);
 			session.getTransaction().commit();
 			resul=true;
 		}

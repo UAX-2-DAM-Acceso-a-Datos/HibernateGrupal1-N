@@ -2,11 +2,11 @@ package pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -20,7 +20,7 @@ public class Vehiculo {
 	@Id
 	@Column(name = "matricula")
 	@NotBlank
-	@Size(min=7, max=8)
+	@Size(min=6, max=8)
 	private String matricula;
 	
 	@Column(name = "marca")
@@ -33,9 +33,8 @@ public class Vehiculo {
 	@Size(min=1, max=50)
 	private String modelo;
 	
-	@ManyToOne
-	@NotBlank
-	@JoinColumn(name="dni")
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dni")
 	private Propietario propietario;
 	
 	public Vehiculo() {
