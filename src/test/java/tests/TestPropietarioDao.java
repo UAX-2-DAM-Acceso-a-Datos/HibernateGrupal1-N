@@ -1,6 +1,7 @@
-package tests;
+	package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,10 +14,16 @@ import pojo.Propietario;
 
 public class TestPropietarioDao {
 
+	static PropietarioDAO pdao;
+	static Propietario p;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		Propietario p = new Propietario();
-		PropietarioDAO pdao = new PropietarioDAO();
+		p = new Propietario();
+		p.setDni("12345678H");
+		p.setNombre("fsafsa");
+		p.setApellido("dfdsfs");
+		pdao = new PropietarioDAO();
 	}
 
 	@AfterClass
@@ -33,6 +40,7 @@ public class TestPropietarioDao {
 
 	@Test
 	public void testGetAllPropietarios() {
+		assertNotNull(pdao.getAllPropietario());
 	}
 
 	@Test
@@ -45,7 +53,7 @@ public class TestPropietarioDao {
 
 	@Test
 	public void testUpdatePropietario() {
-
+		assertTrue(pdao.updatePropietario(p));
 	}
 
 }

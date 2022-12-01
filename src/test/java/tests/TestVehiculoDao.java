@@ -1,6 +1,7 @@
 package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -9,14 +10,28 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import DAO.VehiculoDAO;
+import pojo.Propietario;
 import pojo.Vehiculo;
 
 public class TestVehiculoDao {
-
+	
+	static Vehiculo v;
+	static VehiculoDAO vdao;
+	static Propietario p;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		Vehiculo v = new Vehiculo();
-		VehiculoDAO vdao= new VehiculoDAO();
+		p = new Propietario();
+		p.setDni("12345678H");
+		p.setNombre("fsafsa");
+		p.setApellido("dfdsfs");
+	
+		v = new Vehiculo();
+		v.setMatricula("0000AAA");
+		v.setMarca("Toyota");
+		v.setModelo("3080ti");
+		v.setPropietario(p);
+		vdao= new VehiculoDAO();
 	}
 
 	@AfterClass
@@ -39,8 +54,9 @@ public class TestVehiculoDao {
 	public void testDeleteVehiculo() {
 	}
 
-	@Test
-	public void testAddVehiculo() {
+	@Test 
+	public void testAddVehiculo() {			
+		assertTrue(vdao.addVehiculo(v));
 	}
 
 	@Test
