@@ -1,0 +1,210 @@
+[2022-12-01 11:19:54] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:19:54] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:19:54] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:19:55] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:19:55] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:19:55] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:19:55] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:19:55] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:19:55] [ WARN ] [JdbcEnvironmentInitiator:132] HHH000342: Could not obtain connection to query metadata : Cannot invoke "org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.poll()" because "this.pool" is null
+[2022-12-01 11:19:55] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:19:55] [ INFO ] [LobCreatorBuilderImpl:63] HHH000422: Disabling contextual LOB creation as connection was null
+[2022-12-01 11:19:55] [ WARN ] [SqlExceptionHelper:137] SQL Error: 0, SQLState: 08S01
+[2022-12-01 11:19:55] [ ERROR] [SqlExceptionHelper:142] Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[2022-12-01 11:21:57] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:21:57] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:21:57] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:21:58] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:21:58] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:21:58] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:21:58] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:21:58] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:21:58] [ WARN ] [JdbcEnvironmentInitiator:132] HHH000342: Could not obtain connection to query metadata : Cannot invoke "org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.poll()" because "this.pool" is null
+[2022-12-01 11:21:58] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:21:58] [ INFO ] [LobCreatorBuilderImpl:63] HHH000422: Disabling contextual LOB creation as connection was null
+[2022-12-01 11:21:58] [ WARN ] [SqlExceptionHelper:137] SQL Error: 0, SQLState: 08S01
+[2022-12-01 11:21:58] [ ERROR] [SqlExceptionHelper:142] Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[2022-12-01 11:23:42] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:23:42] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:23:43] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:23:43] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:23:43] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:23:43] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:23:43] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:23:43] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:23:43] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:23:44] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@161aa04a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:23:44] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ddb3ae8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:23:44] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@67507df'
+[2022-12-01 11:29:58] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:29:58] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:29:58] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:29:58] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:29:58] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:29:58] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:29:58] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:29:58] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:29:58] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:29:59] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@161aa04a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:29:59] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ddb3ae8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:29:59] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@67507df'
+[2022-12-01 11:30:11] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:30:11] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:30:12] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:30:12] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:30:12] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:30:12] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:30:12] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:30:12] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:30:12] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:30:13] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@161aa04a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:30:13] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ddb3ae8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:30:13] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@67507df'
+[2022-12-01 11:37:18] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:37:18] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:37:18] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:37:18] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:37:18] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:37:18] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:37:18] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:37:18] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:37:19] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:37:19] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@161aa04a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:37:19] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ddb3ae8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:37:19] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@67507df'
+[2022-12-01 11:38:53] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:38:53] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:38:54] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:38:54] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:38:54] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:38:54] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:38:54] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:38:54] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:38:54] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:38:55] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@161aa04a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:38:55] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ddb3ae8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:38:55] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@67507df'
+[2022-12-01 11:42:07] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:42:07] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:42:07] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:42:07] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:42:07] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:42:07] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:42:07] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:42:07] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:42:07] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:42:08] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@161aa04a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:42:08] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ddb3ae8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:42:08] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@67507df'
+[2022-12-01 11:43:35] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:43:35] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:43:35] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:43:35] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:43:35] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:43:35] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:43:35] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:43:35] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:43:36] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:43:36] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@77dba4cd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:43:36] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3451f01d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:43:36] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6bcc3f27'
+[2022-12-01 11:46:16] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:46:16] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:46:17] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:46:17] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:46:17] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:46:17] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:46:17] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:46:17] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:46:17] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:46:18] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@77dba4cd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:46:18] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3451f01d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:46:18] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6bcc3f27'
+[2022-12-01 11:47:07] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:47:07] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:47:09] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:47:10] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:47:10] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:47:10] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:47:10] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:47:10] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:47:11] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:47:14] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@77dba4cd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:47:14] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3451f01d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:47:14] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6bcc3f27'
+[2022-12-01 11:48:16] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:48:16] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:48:18] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:48:19] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:48:19] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:48:19] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:48:19] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:48:19] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:48:19] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:48:23] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@34a2d6e0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:48:23] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@72503b19] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:48:23] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@79aee22a'
+[2022-12-01 11:48:47] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:48:47] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:48:49] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:48:50] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:48:50] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:48:50] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:48:50] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:48:50] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:48:51] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:48:54] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@77dba4cd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:48:54] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3451f01d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:48:54] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6bcc3f27'
+[2022-12-01 11:51:45] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:51:45] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:51:47] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:51:48] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:51:48] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:51:48] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:51:48] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:51:48] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:51:49] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:51:52] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@77dba4cd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:51:52] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3451f01d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:51:52] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6bcc3f27'
+[2022-12-01 11:53:56] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:53:56] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:53:58] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:53:59] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:53:59] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:53:59] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:53:59] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:53:59] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:54:00] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:54:03] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@77dba4cd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:54:03] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3451f01d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:54:03] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6bcc3f27'
+[2022-12-01 11:56:14] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:56:14] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:56:16] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:56:17] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:56:17] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:56:17] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:56:17] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:56:17] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:56:18] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:56:21] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@77dba4cd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:56:21] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3451f01d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:56:21] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6bcc3f27'
+[2022-12-01 11:58:53] [ INFO ] [Version:46] HHH000412: Hibernate Core {5.3.7.Final}
+[2022-12-01 11:58:53] [ INFO ] [Environment:213] HHH000206: hibernate.properties not found
+[2022-12-01 11:58:53] [ INFO ] [Version:49] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[2022-12-01 11:58:54] [ WARN ] [pooling:73] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2022-12-01 11:58:54] [ INFO ] [pooling:129] HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/vehiculos]
+[2022-12-01 11:58:54] [ INFO ] [pooling:138] HHH10001001: Connection properties: {password=****, user=root}
+[2022-12-01 11:58:54] [ INFO ] [pooling:143] HHH10001003: Autocommit mode: false
+[2022-12-01 11:58:54] [ INFO ] [DriverManagerConnectionProviderImpl:281] HHH000115: Hibernate connection pool size: 2 (min=1)
+[2022-12-01 11:58:54] [ INFO ] [Dialect:157] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2022-12-01 11:58:54] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@161aa04a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:58:54] [ INFO ] [access:47] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ddb3ae8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2022-12-01 11:58:54] [ INFO ] [SchemaCreatorImpl:489] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@67507df'

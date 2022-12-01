@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.*;
+import DAO.VehiculoDAO;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -9,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import DAO.VehiculoDAO;
+import pojo.Propietario;
 import pojo.Vehiculo;
 
 public class TestVehiculoDao {
@@ -37,6 +39,20 @@ public class TestVehiculoDao {
 
 	@Test
 	public void testDeleteVehiculo() {
+		VehiculoDAO v2 = new VehiculoDAO();
+		Vehiculo v1 = new Vehiculo();
+		Propietario p1 = new Propietario();
+		p1.setDni("2");
+		p1.setNombre("Sergi");
+		p1.setApellido("L");
+		v1.setMarca("Honda");
+		v1.setMatricula("1234566");
+		v1.setModelo("YZF");
+		v1.setPropietario(p1);
+		v2.addVehiculo(v1);
+		assertTrue(v2.deleteVehiculo("1234566"));
+		
+
 	}
 
 	@Test
