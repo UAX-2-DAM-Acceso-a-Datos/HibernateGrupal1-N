@@ -3,7 +3,6 @@ package DAO;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.Query;
 
 import IDAO.IVehiculoDAO;
 import pojo.Vehiculo;
@@ -57,12 +56,8 @@ public class VehiculoDAO implements IVehiculoDAO {
 
 	public List<Vehiculo> getAllVehiculos() {
 		Session session = HibernateUtils.getSessionFactory().openSession();
-		session.beginTransaction();
 		List<Vehiculo> vs =  (List<Vehiculo>) session.createQuery("from Vehiculo").getResultList();
-		
-		for (Vehiculo v : vs) {
-			System.out.println(v.toString());
-		}
+		session.beginTransaction().commit();
 		session.close();
 		return vs;
 	}
@@ -72,7 +67,7 @@ public class VehiculoDAO implements IVehiculoDAO {
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		session.beginTransaction();
 		v = session.get(Vehiculo.class, matricula);
-
+		
 		session.close();
 		return v;
 	}
