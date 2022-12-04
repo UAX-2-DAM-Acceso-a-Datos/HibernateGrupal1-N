@@ -6,11 +6,10 @@ import org.hibernate.Session;
 
 import IDAO.IPropietarioDAO;
 import pojo.Propietario;
-import pojo.Vehiculo;
 import utils.HibernateUtils;
 
 public class PropietarioDAO implements IPropietarioDAO {
-
+	
 	// Método para añadir un propietario en la BBDD
 	public boolean addPropietario(Propietario p) {
         boolean resul=false;
@@ -57,25 +56,24 @@ public class PropietarioDAO implements IPropietarioDAO {
 	}
 
 	// Método para obtener todos los propietarios en la BBDD
-	public List<Propietario> getAllPropietario() {
+	public List<Propietario> getAllPropietarios() {
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		session.beginTransaction();
 		List<Propietario> vs = session.createQuery("From Propietario").list();
 		for (Propietario p : vs) {
 			System.out.println(p);
 		}
-		session.close();
 		return vs;
 
 	}
 	
 	// Método para obetener de la BBDD un propietario con un dni específico
 	private Propietario getPropietarioByDni(String dni) {
-		Propietario p = null; // se crea un objeto propietario null
-		Session session = HibernateUtils.getSessionFactory().openSession(); // se abre la conexión
-		session.beginTransaction(); // se ejecuta la query para obtener resultados
-		p = session.get(Propietario.class, dni); // metemos el valor resultado filtrando por el dni en un obeto
-		session.close(); // cerramos la conexión
-		return p; // devolvemos el objeto
+		Propietario p = null; 
+		Session session = HibernateUtils.getSessionFactory().openSession(); 
+		p = session.get(Propietario.class, dni); 
+		session.beginTransaction().commit(); 
+		session.close();
+		return p;
 	}
 }

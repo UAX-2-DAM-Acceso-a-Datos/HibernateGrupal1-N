@@ -12,34 +12,33 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-
 @Entity
 @Table(name = "vehiculos")
-public class Vehiculo {
-	
+public class Vehiculo implements Comparable<Vehiculo>{
+
 	@Id
 	@Column(name = "matricula")
 	@NotBlank
-	@Size(min=6, max=8)
+	@Size(min = 6, max = 8)
 	private String matricula;
-	
+
 	@Column(name = "marca")
 	@NotNull
-	@Size(min=1, max=50)
+	@Size(min = 1, max = 50)
 	private String marca;
-	
+
 	@Column(name = "modelo")
 	@NotNull
-	@Size(min=1, max=50)
+	@Size(min = 1, max = 50)
 	private String modelo;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dni")
+	@JoinColumn(name = "dni")
 	private Propietario propietario;
-	
+
 	public Vehiculo() {
 		super();
-	} 
+	}
 
 	public Vehiculo(String matricula2) {
 		matricula = matricula2;
@@ -77,13 +76,9 @@ public class Vehiculo {
 		this.propietario = propietario;
 	}
 
-	@Override
-	public String toString() {
-		return "Vehiculo [matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo + ", propietario="
-				+ propietario + "]";
+	//compara solo por id, o sea, matricula
+	public int compareTo(Vehiculo o) {
+		return matricula.compareToIgnoreCase(o.matricula);
 	}
-	
-	
-	
 	
 }
