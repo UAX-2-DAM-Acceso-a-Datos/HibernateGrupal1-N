@@ -1,6 +1,8 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -92,10 +94,39 @@ public class TestVehiculoDao {
 
 	@Test
 	public void testDeleteVehiculo_success() {
+		
+		Propietario propietario = new Propietario();
+		propietario.setDni("12345678B");
+		propietario.setNombre("fsafsa");
+		propietario.setApellido("dfdsfs");
+		
+		Vehiculo v = new Vehiculo("0000AAA");
+		v.setMarca("Toyota");
+		v.setModelo("3080ti");
+		v.setPropietario(propietario);
+		
+		assertTrue(vdao.deleteVehiculo(v.getMatricula()));
+		
+		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
+		assertEquals(vehiculos.size() - 1, obtenidos.size());
+		int i;
+		boolean deleted = true;
+		for (i = 0; i < obtenidos.size() && deleted; i++) {
+			if ("0000AAA".compareToIgnoreCase(obtenidos.get(i).getMatricula()) != 0) {
+				assertNotEquals("0000AAA", obtenidos.get(i).getMatricula());
+			} else {
+				assertEquals(i, obtenidos.size() - 1);
+				deleted = false;
+			}
+		}
+		if (deleted) {
+			vehiculos = (ArrayList<Vehiculo>) obtenidos;
+		}
 	}
 
 	@Test
 	public void testAddVehiculo_success() {
+		
 	}
 
 	@Test
