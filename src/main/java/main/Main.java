@@ -35,7 +35,7 @@ public class Main {
 		vehiculos.add(v1);
 		
 		//Asignamos los vehiculos al propietario
-		p1.setVehiculo(vehiculos);
+		p1.setVehiculos(vehiculos);
 		
 				
 		//Se añade el propietario con sus vehiculos

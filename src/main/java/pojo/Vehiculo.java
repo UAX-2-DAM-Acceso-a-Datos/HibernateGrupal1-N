@@ -33,7 +33,7 @@ public class Vehiculo implements Comparable<Vehiculo>{
 	private String modelo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dni")
+	@JoinColumn(name = "dni", referencedColumnName = "dni", nullable = false)
 	private Propietario propietario;
 
 	public Vehiculo() {
@@ -71,6 +71,7 @@ public class Vehiculo implements Comparable<Vehiculo>{
 	public Propietario getPropietario() {
 		return propietario;
 	}
+
 
 	public void setPropietario(Propietario propietario) {
 		this.propietario = propietario;

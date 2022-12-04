@@ -14,6 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import DAO.PropietarioDAO;
+import DAO.VehiculoDAO;
 import pojo.Propietario;
 import pojo.Vehiculo;
 
@@ -21,6 +22,7 @@ public class TestPropietarioDao {
 
 	static PropietarioDAO pdao;
 	static ArrayList<Propietario> propietarios;
+	static ArrayList<Vehiculo> vp;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -31,18 +33,6 @@ public class TestPropietarioDao {
 		Vehiculo vehiculo2 = new Vehiculo();
 		Vehiculo vehiculo3 = new Vehiculo();
 
-		vehiculo.setMatricula("0000AAA");
-		vehiculo.setMarca("Toyota");
-		vehiculo.setModelo("3080ti");
-
-		vehiculo2.setMatricula("0000BBB");
-		vehiculo2.setMarca("Audi");
-		vehiculo2.setModelo("Q3");
-
-		vehiculo3.setMatricula("1111AAA");
-		vehiculo3.setMarca("Kia");
-		vehiculo3.setModelo("Ceed");
-
 		propietario.setDni("12345678H");
 		propietario.setNombre("fsafsa");
 		propietario.setApellido("dfdsfs");
@@ -51,18 +41,35 @@ public class TestPropietarioDao {
 		propietario2.setNombre("Lauri");
 		propietario2.setApellido("Lacaustra");
 
+		vehiculo.setMatricula("0000AAA");
+		vehiculo.setMarca("Toyota");
+		vehiculo.setModelo("3080ti");
+		vehiculo.setPropietario(propietario);
+
+		vehiculo2.setMatricula("0000BBB");
+		vehiculo2.setMarca("Audi");
+		vehiculo2.setModelo("Q3");
+		vehiculo2.setPropietario(propietario2);
+
+		vehiculo3.setMatricula("1111AAA");
+		vehiculo3.setMarca("Kia");
+		vehiculo3.setModelo("Ceed");
+		vehiculo3.setPropietario(propietario2);
+
 		ArrayList<Vehiculo> vp1 = new ArrayList<Vehiculo>();
 		vp1.add(vehiculo);
-		propietario.setVehiculo(vp1);
+		propietario.setVehiculos(vp1);
 
-		ArrayList<Vehiculo> vp2 = new ArrayList<Vehiculo>();
+		List<Vehiculo>vp2 = new ArrayList<Vehiculo>();
 		vp2.add(vehiculo2);
 		vp2.add(vehiculo3);
-		propietario.setVehiculo(vp2);
+		propietario2.setVehiculos(vp2);
 
 		propietarios.add(propietario);
 		propietarios.add(propietario2);
 
+		vp = (ArrayList<Vehiculo>) vp2;
+	
 		pdao = new PropietarioDAO();
 		for (Propietario p : propietarios) {
 			pdao.addPropietario(p);
@@ -71,9 +78,14 @@ public class TestPropietarioDao {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		VehiculoDAO vdao = new VehiculoDAO();
 		List<Propietario> props = pdao.getAllPropietarios();
 		for (Propietario p : props) {
 			pdao.deletePropietario(p.getDni());
+			List<Vehiculo> vs = p.getVehiculos();
+			for (Vehiculo v: vs) {
+				vdao.deleteVehiculo(v.getMatricula());
+			}
 		}
 	}
 
@@ -97,19 +109,19 @@ public class TestPropietarioDao {
 	@Test
 	public void testAddPropietario() {
 		Vehiculo vehiculo = new Vehiculo();
-
-		vehiculo.setMatricula("0100BAA");
-		vehiculo.setMarca("Audi");
-		vehiculo.setModelo("A5");
-
 		Propietario aniadir = new Propietario();
 		aniadir.setDni("34567890H");
 		aniadir.setNombre("Lauri");
 		aniadir.setApellido("Lacostra");
 
+		vehiculo.setMatricula("0100BAA");
+		vehiculo.setMarca("Audi");
+		vehiculo.setModelo("A5");
+		vehiculo.setPropietario(aniadir);
+
 		ArrayList<Vehiculo> vp1 = new ArrayList<Vehiculo>();
 		vp1.add(vehiculo);
-		aniadir.setVehiculo(vp1);
+		aniadir.setVehiculos(vp1);
 
 		propietarios.add(aniadir);
 
@@ -183,6 +195,12 @@ public class TestPropietarioDao {
 	
 	@Test
 	public void getVehiculosPropietario() {
+		Propietario p = propietarios.get(0);
+		List<Vehiculo> vs = pdao.getVehiculosPropietario(p);
 		
+		assertEquals(vp.size(), vs.size());
+		for (int i = 0; i < p.getVehiculos().size(); i++) {
+			assertEquals(p.getVehiculos().get(i).getMatricula(), vp.get(i).getMatricula());
+		}
 	}
 }

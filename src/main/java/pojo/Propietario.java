@@ -34,7 +34,8 @@ public class Propietario implements Comparable<Propietario> {
 	@NotNull
 	private String apellido;
 
-	@OneToMany(mappedBy = "propietario", orphanRemoval = true, // Eliminacion en cascada
+	@OneToMany(mappedBy = "propietario",
+			orphanRemoval = true, // Eliminacion en cascada
 			fetch = FetchType.LAZY, // No haga busquedas recursivas
 			cascade = CascadeType.ALL)
 	private List<Vehiculo> vehiculos;
@@ -51,36 +52,35 @@ public class Propietario implements Comparable<Propietario> {
 		return dni;
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
-
 	public String getNombre() {
 		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public String getApellido() {
 		return apellido;
 	}
 
+	public List<Vehiculo> getVehiculos() {
+		return vehiculos;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
 
-	public List<Vehiculo> getVehiculo() {
-		return vehiculos;
-	}
-
-	public void setVehiculo(List<Vehiculo> vehiculos) {
+	public void setVehiculos(List<Vehiculo> vehiculos) {
 		this.vehiculos = vehiculos;
 	}
-
+	
 	public int compareTo(Propietario o) {
 		return dni.compareToIgnoreCase(o.dni);
 	}
-	
 }

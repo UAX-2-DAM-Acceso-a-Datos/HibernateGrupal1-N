@@ -6,6 +6,7 @@ import org.hibernate.Session;
 
 import IDAO.IPropietarioDAO;
 import pojo.Propietario;
+import pojo.Vehiculo;
 import utils.HibernateUtils;
 
 public class PropietarioDAO implements IPropietarioDAO {
@@ -16,11 +17,15 @@ public class PropietarioDAO implements IPropietarioDAO {
         Session session = HibernateUtils.getSessionFactory().openSession();
         if (p.getDni() != null) {
             session.beginTransaction();
-            session.save(p);
+            for (Vehiculo v : p.getVehiculos()) {
+            	session.save(v.getPropietario());
+            	session.save(v);
+            }
             session.getTransaction().commit();
+            session.close();
+            updatePropietario(p);
             resul=true;
         }
-        session.close();
         return resul;
     }
 
@@ -60,11 +65,15 @@ public class PropietarioDAO implements IPropietarioDAO {
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		session.beginTransaction();
 		List<Propietario> vs = session.createQuery("From Propietario").list();
-		for (Propietario p : vs) {
-			System.out.println(p);
-		}
 		return vs;
-
+	}
+	
+	public List<Vehiculo> getVehiculosPropietario(Propietario p) {
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		session.beginTransaction();
+		List<Vehiculo> vs =  session.createQuery("FROM Vehiculo v WHERE v.propietario.dni = :dni", Vehiculo.class).setParameter("dni", p.getDni()).list();
+//		p.setVehiculos(vs);
+		return vs;
 	}
 	
 	// Método para obetener de la BBDD un propietario con un dni específico
