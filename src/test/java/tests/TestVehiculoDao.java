@@ -126,7 +126,35 @@ public class TestVehiculoDao {
 
 	@Test
 	public void testAddVehiculo_success() {
-		
+		Vehiculo vehiculo = new Vehiculo();
+		Propietario aniadir = new Propietario();
+		aniadir.setDni("34567890H");
+		aniadir.setNombre("Lauri");
+		aniadir.setApellido("Lacostra");
+
+		vehiculo.setMatricula("0100BAA");
+		vehiculo.setMarca("Audi");
+		vehiculo.setModelo("A5");
+		vehiculo.setPropietario(aniadir);
+
+		vehiculos.add(vehiculo);
+
+		assertTrue(vdao.addVehiculo(vehiculo));
+
+		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
+		assertEquals(vehiculos.size(), obtenidos.size());
+		boolean found = false;
+		for (int i = 0; i < obtenidos.size() && !found; i++) {
+			if(vehiculo.getMatricula().compareToIgnoreCase(obtenidos.get(i).getMatricula()) == 0) {
+				assertEquals(vehiculo.getMatricula(), obtenidos.get(i).getMatricula());
+				found = true;
+			}else {
+				assertNotEquals(i, obtenidos.size() - 1);
+			}
+		}
+		if (found) {
+			vehiculos = (ArrayList<Vehiculo>) obtenidos;
+		}
 	}
 
 	@Test
