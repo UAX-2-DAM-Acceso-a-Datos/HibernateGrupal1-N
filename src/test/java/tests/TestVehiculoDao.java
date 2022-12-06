@@ -77,16 +77,16 @@ public class TestVehiculoDao {
 	}
 
 	/**
-	 *  comparo lo que hay en la base de datos con el array vehiculos.
-	 *  a veces el orden de obtenidos coincide con el de vehiculos y a veces no
-	 *  por lo que a veces falla y a veces esta bien. 
-	 *  Para ello se ordena y por eso pojo vehiculo tiene compare to.
+	 * comparo lo que hay en la base de datos con el array vehiculos. a veces el
+	 * orden de obtenidos coincide con el de vehiculos y a veces no por lo que a
+	 * veces falla y a veces esta bien. Para ello se ordena y por eso pojo vehiculo
+	 * tiene compare to.
 	 */
 	@Test
 	public void testGetAllVehiculos_success() {
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
 		Collections.sort(obtenidos);
-		assertEquals(vehiculos.size(), obtenidos.size());		
+		assertEquals(vehiculos.size(), obtenidos.size());
 		for (int i = 0; i < obtenidos.size(); i++) {
 			assertEquals(vehiculos.get(i).getMatricula(), obtenidos.get(i).getMatricula());
 		}
@@ -94,19 +94,19 @@ public class TestVehiculoDao {
 
 	@Test
 	public void testDeleteVehiculo_success() {
-		
+
 		Propietario propietario = new Propietario();
 		propietario.setDni("12345678B");
 		propietario.setNombre("fsafsa");
 		propietario.setApellido("dfdsfs");
-		
+
 		Vehiculo v = new Vehiculo("0000AAA");
 		v.setMarca("Toyota");
 		v.setModelo("3080ti");
 		v.setPropietario(propietario);
-		
+
 		assertTrue(vdao.deleteVehiculo(v.getMatricula()));
-		
+
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
 		assertEquals(vehiculos.size() - 1, obtenidos.size());
 		int i;
@@ -145,10 +145,10 @@ public class TestVehiculoDao {
 		assertEquals(vehiculos.size(), obtenidos.size());
 		boolean found = false;
 		for (int i = 0; i < obtenidos.size() && !found; i++) {
-			if(vehiculo.getMatricula().compareToIgnoreCase(obtenidos.get(i).getMatricula()) == 0) {
+			if (vehiculo.getMatricula().compareToIgnoreCase(obtenidos.get(i).getMatricula()) == 0) {
 				assertEquals(vehiculo.getMatricula(), obtenidos.get(i).getMatricula());
 				found = true;
-			}else {
+			} else {
 				assertNotEquals(i, obtenidos.size() - 1);
 			}
 		}
@@ -159,6 +159,31 @@ public class TestVehiculoDao {
 
 	@Test
 	public void testUpdateVehiculo_success() {
-		
+		Propietario prop = new Propietario();
+		Vehiculo update = new Vehiculo();
+		prop.setDni("34534590J");
+		prop.setNombre("SIWI");
+		prop.setApellido("Hernán");
+		update.setMarca("nissan");
+		update.setMatricula("0000AAA");
+		update.setModelo("350z");
+		update.setPropietario(prop);
+
+		assertTrue(vdao.updateVehiculo(update));
+
+		boolean updated = false;
+		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
+		assertEquals(vehiculos.size(), obtenidos.size());
+		for (int i = 0; i < obtenidos.size() && !updated; i++) {
+			if (update.getMatricula().compareToIgnoreCase(obtenidos.get(i).getMatricula()) == 0) {
+				assertEquals(update.getMatricula(), obtenidos.get(i).getMatricula());
+				updated = true;
+			} else {
+				assertNotEquals(i, obtenidos.size() - 1);
+			}
+		}
+		if (updated) {
+			vehiculos = (ArrayList<Vehiculo>) obtenidos;
+		}
 	}
 }
