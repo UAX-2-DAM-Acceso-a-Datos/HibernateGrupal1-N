@@ -62,8 +62,11 @@ public class TestVehiculoDao {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		PropietarioDAO pdao = new PropietarioDAO();
+		List<Propietario> ps = pdao.getAllPropietarios();
+		for (Propietario propietario : ps) {			
+			pdao.deletePropietario(propietario.getDni());
+		}
 		for (Vehiculo v : vehiculos) {
-			pdao.deletePropietario(v.getPropietario().getDni());
 			vdao.deleteVehiculo(v.getMatricula());
 		}
 	}
@@ -165,7 +168,7 @@ public class TestVehiculoDao {
 		prop.setNombre("SIWI");
 		prop.setApellido("Hernán");
 		update.setMarca("nissan");
-		update.setMatricula("0000AAA");
+		update.setMatricula("0000BBB");
 		update.setModelo("350z");
 		update.setPropietario(prop);
 

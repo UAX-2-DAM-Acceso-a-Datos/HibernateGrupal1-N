@@ -65,9 +65,8 @@ public class VehiculoDAO implements IVehiculoDAO {
 	private Vehiculo getVehiculoByMatr(String matricula) {
 		Vehiculo v = new Vehiculo (matricula);
 		Session session = HibernateUtils.getSessionFactory().openSession();
-		session.beginTransaction();
 		v = session.get(Vehiculo.class, matricula);
-		
+		session.beginTransaction().commit();
 		session.close();
 		return v;
 	}
