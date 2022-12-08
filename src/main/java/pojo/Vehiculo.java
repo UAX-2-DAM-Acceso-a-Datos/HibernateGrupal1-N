@@ -77,7 +77,12 @@ public class Vehiculo implements Comparable<Vehiculo>{
 		this.propietario = propietario;
 	}
 
-	//compara solo por id, o sea, matricula
+	/**
+	 * Compara solo por matricula
+	 * 
+	 * @return -1 si el objeto tiene menor matricula que el parametro, 0 si matriculas iguales, 1 si el objeto tiene mayor matricula que el parametro		
+	 * @param o el vehiculo con el que compararse
+	 */
 	public int compareTo(Vehiculo o) {
 		return matricula.compareToIgnoreCase(o.matricula);
 	}

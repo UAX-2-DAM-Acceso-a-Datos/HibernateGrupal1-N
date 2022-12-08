@@ -1,7 +1,6 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -63,7 +62,7 @@ public class TestVehiculoDao {
 	public static void tearDownAfterClass() throws Exception {
 		PropietarioDAO pdao = new PropietarioDAO();
 		List<Propietario> ps = pdao.getAllPropietarios();
-		for (Propietario propietario : ps) {			
+		for (Propietario propietario : ps) {
 			pdao.deletePropietario(propietario.getDni());
 		}
 		for (Vehiculo v : vehiculos) {
@@ -86,49 +85,53 @@ public class TestVehiculoDao {
 	 * tiene compare to.
 	 */
 	@Test
-	public void testGetAllVehiculos_success() {
+	public void testGetAllVehiculosSuccess() {
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		Collections.sort(obtenidos);
-		assertEquals(vehiculos.size(), obtenidos.size());
-		for (int i = 0; i < obtenidos.size(); i++) {
-			assertEquals(vehiculos.get(i).getMatricula(), obtenidos.get(i).getMatricula());
-		}
+		assertTrue(obtenidos.size() > 0);
 	}
 
 	@Test
-	public void testDeleteVehiculo_success() {
+	public void testDeleteVehiculo_SuccessWhenKeyExists() {
+		
+		Propietario propietario = new Propietario();
+		propietario.setDni("12345678B");
+		propietario.setNombre("fsafsa");
+		propietario.setApellido("dfdsfs");
+		Vehiculo v = new Vehiculo("0000AAA");
+		v.setMarca("Toyota");
+		v.setModelo("3080ti");
+		v.setPropietario(propietario);
+		
+		boolean operacion = vdao.deleteVehiculo(v.getMatricula());
+		
+		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
+		int index = Collections.binarySearch(obtenidos, v);
+		
+		assertTrue(index < 0 && operacion);
+		
+		vehiculos = (ArrayList<Vehiculo>) obtenidos;
+	}
+
+	@Test
+	public void testDeleteVehiculo_FailsWhenKeyNotExists() {
 
 		Propietario propietario = new Propietario();
 		propietario.setDni("12345678B");
 		propietario.setNombre("fsafsa");
 		propietario.setApellido("dfdsfs");
-
-		Vehiculo v = new Vehiculo("0000AAA");
+		Vehiculo v = new Vehiculo("0011CAB");
 		v.setMarca("Toyota");
 		v.setModelo("3080ti");
 		v.setPropietario(propietario);
 
-		assertTrue(vdao.deleteVehiculo(v.getMatricula()));
-
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		assertEquals(vehiculos.size() - 1, obtenidos.size());
-		int i;
-		boolean deleted = true;
-		for (i = 0; i < obtenidos.size() && deleted; i++) {
-			if ("0000AAA".compareToIgnoreCase(obtenidos.get(i).getMatricula()) != 0) {
-				assertNotEquals("0000AAA", obtenidos.get(i).getMatricula());
-			} else {
-				assertEquals(i, obtenidos.size() - 1);
-				deleted = false;
-			}
-		}
-		if (deleted) {
-			vehiculos = (ArrayList<Vehiculo>) obtenidos;
-		}
+		int index = Collections.binarySearch(obtenidos, v);
+		
+		assertTrue(index < 0 && !vdao.deleteVehiculo(v.getMatricula()));		
 	}
 
 	@Test
-	public void testAddVehiculo_success() {
+	public void testAddVehiculo_SuccessWhenKeyNotExists() {
 		Vehiculo vehiculo = new Vehiculo();
 		Propietario aniadir = new Propietario();
 		aniadir.setDni("34567890H");
@@ -140,28 +143,34 @@ public class TestVehiculoDao {
 		vehiculo.setModelo("A5");
 		vehiculo.setPropietario(aniadir);
 
-		vehiculos.add(vehiculo);
-
-		assertTrue(vdao.addVehiculo(vehiculo));
-
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		assertEquals(vehiculos.size(), obtenidos.size());
-		boolean found = false;
-		for (int i = 0; i < obtenidos.size() && !found; i++) {
-			if (vehiculo.getMatricula().compareToIgnoreCase(obtenidos.get(i).getMatricula()) == 0) {
-				assertEquals(vehiculo.getMatricula(), obtenidos.get(i).getMatricula());
-				found = true;
-			} else {
-				assertNotEquals(i, obtenidos.size() - 1);
-			}
-		}
-		if (found) {
-			vehiculos = (ArrayList<Vehiculo>) obtenidos;
-		}
+		int index = Collections.binarySearch(obtenidos, vehiculo);
+		
+		assertTrue(index < 0 && vdao.addVehiculo(vehiculo));
+
+		vehiculos = (ArrayList<Vehiculo>) obtenidos;
 	}
 
 	@Test
-	public void testUpdateVehiculo_success() {
+	public void testAddVehiculo_FailWhenKeyExists() {
+		Vehiculo vehiculo = new Vehiculo();
+		Propietario aniadir = new Propietario();
+		aniadir.setDni("34567890H");
+		aniadir.setNombre("Lauri");
+		aniadir.setApellido("Lacostra");
+
+		vehiculo.setMatricula("0000BBB");
+		vehiculo.setMarca("Audi");
+		vehiculo.setModelo("Q3");
+		vehiculo.setPropietario(aniadir);
+
+		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
+		int index = Collections.binarySearch(obtenidos, vehiculo);
+		assertTrue(index >= 0 && !vdao.addVehiculo(vehiculo));
+	}
+
+	@Test
+	public void testUpdateVehiculo_SuccessWhenKeyExists() {
 		Propietario prop = new Propietario();
 		Vehiculo update = new Vehiculo();
 		prop.setDni("34534590J");
@@ -172,21 +181,28 @@ public class TestVehiculoDao {
 		update.setModelo("350z");
 		update.setPropietario(prop);
 
-		assertTrue(vdao.updateVehiculo(update));
-
-		boolean updated = false;
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		assertEquals(vehiculos.size(), obtenidos.size());
-		for (int i = 0; i < obtenidos.size() && !updated; i++) {
-			if (update.getMatricula().compareToIgnoreCase(obtenidos.get(i).getMatricula()) == 0) {
-				assertEquals(update.getMatricula(), obtenidos.get(i).getMatricula());
-				updated = true;
-			} else {
-				assertNotEquals(i, obtenidos.size() - 1);
-			}
-		}
-		if (updated) {
-			vehiculos = (ArrayList<Vehiculo>) obtenidos;
-		}
+		int index = Collections.binarySearch(obtenidos, update);
+		assertTrue(index >= 0 && vdao.updateVehiculo(update));
+		
+		vehiculos = (ArrayList<Vehiculo>) obtenidos;
+	}
+
+	@Test
+	public void testUpdateVehiculo_FailWhenKeyNotExists() {
+		Propietario prop = new Propietario();
+		Vehiculo update = new Vehiculo();
+		prop.setDni("34534590J");
+		prop.setNombre("SIWI");
+		prop.setApellido("Hernán");
+		update.setMarca("nissan");
+		update.setMatricula("1122BCH");
+		update.setModelo("350z");
+		update.setPropietario(prop);
+
+		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
+		int index = Collections.binarySearch(obtenidos, update);
+		
+		assertFalse(index >= 0 && vdao.updateVehiculo(update));
 	}
 }
