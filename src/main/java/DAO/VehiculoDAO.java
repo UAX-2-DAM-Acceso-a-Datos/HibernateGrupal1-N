@@ -57,8 +57,8 @@ public class VehiculoDAO implements IVehiculoDAO {
 			session.beginTransaction().commit();
 			resul = true;
 		} else {
-			logger.info("[VehiculoDao] [updateVehiculo] – vehiculo con matricula \"" + v.getMatricula()
-					+ "\" esta en bbdd");
+			logger.debug("[VehiculoDao] [updateVehiculo] – vehiculo con matricula \"" + v.getMatricula()
+					+ "\" NO esta en bbdd");
 		}
 		session.close();
 		return resul;
@@ -68,7 +68,7 @@ public class VehiculoDAO implements IVehiculoDAO {
 		boolean resul = false;
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		Vehiculo deleted = null;
-		
+
 		logger.info("[VehiculoDao] [deleteVehiculo] – buscando si hay vehiculo con matricula: " + matricula);
 		boolean found = false;
 		if (matricula != null) {
@@ -83,8 +83,7 @@ public class VehiculoDAO implements IVehiculoDAO {
 			session.beginTransaction().commit();
 			resul = true;
 		} else {
-			logger.info("[VehiculoDao] [updateVehiculo] – vehiculo con matricula \"" 
-						+ matricula + "\" esta en bbdd");
+			logger.info("[VehiculoDao] [updateVehiculo] – vehiculo con matricula \"" + matricula + "\" esta en bbdd");
 		}
 		session.close();
 		return resul;

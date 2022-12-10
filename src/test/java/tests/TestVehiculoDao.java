@@ -1,6 +1,5 @@
 package tests;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -97,19 +96,22 @@ public class TestVehiculoDao {
 		propietario.setDni("12345678B");
 		propietario.setNombre("fsafsa");
 		propietario.setApellido("dfdsfs");
-		Vehiculo v = new Vehiculo("0000AAA");
-		v.setMarca("Toyota");
-		v.setModelo("3080ti");
-		v.setPropietario(propietario);
+		Vehiculo vehiculoDeleted = new Vehiculo("0000AAA");
+		vehiculoDeleted.setMarca("Toyota");
+		vehiculoDeleted.setModelo("3080ti");
+		vehiculoDeleted.setPropietario(propietario);
 		
-		boolean operacion = vdao.deleteVehiculo(v.getMatricula());
+		List<Vehiculo> obtenidosExist = vdao.getAllVehiculos();
+		int indexExist = binarySearch(obtenidosExist, vehiculoDeleted);
 		
-		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		int index = Collections.binarySearch(obtenidos, v);
+		boolean operacion = vdao.deleteVehiculo(vehiculoDeleted.getMatricula());
 		
-		assertTrue(index < 0 && operacion);
+		List<Vehiculo> obtenidosNotExist = vdao.getAllVehiculos();
+		int indexNotExist = binarySearch(obtenidosNotExist, vehiculoDeleted);
 		
-		vehiculos = (ArrayList<Vehiculo>) obtenidos;
+		assertTrue(indexExist >= 0 && operacion && indexNotExist < 0);
+		
+		vehiculos = (ArrayList<Vehiculo>) obtenidosNotExist;
 	}
 
 	@Test
@@ -119,36 +121,41 @@ public class TestVehiculoDao {
 		propietario.setDni("12345678B");
 		propietario.setNombre("fsafsa");
 		propietario.setApellido("dfdsfs");
-		Vehiculo v = new Vehiculo("0011CAB");
-		v.setMarca("Toyota");
-		v.setModelo("3080ti");
-		v.setPropietario(propietario);
+		Vehiculo vehiculoDeleted = new Vehiculo("0011CAB");
+		vehiculoDeleted.setMarca("Toyota");
+		vehiculoDeleted.setModelo("3080ti");
+		vehiculoDeleted.setPropietario(propietario);
 
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		int index = Collections.binarySearch(obtenidos, v);
+		int index = binarySearch(obtenidos, vehiculoDeleted);
 		
-		assertTrue(index < 0 && !vdao.deleteVehiculo(v.getMatricula()));		
+		assertTrue(index < 0 && !vdao.deleteVehiculo(vehiculoDeleted.getMatricula()));		
 	}
 
 	@Test
 	public void testAddVehiculo_SuccessWhenKeyNotExists() {
-		Vehiculo vehiculo = new Vehiculo();
-		Propietario aniadir = new Propietario();
-		aniadir.setDni("34567890H");
-		aniadir.setNombre("Lauri");
-		aniadir.setApellido("Lacostra");
+		Vehiculo vehiculoAdded = new Vehiculo();
+		Propietario propietario = new Propietario();
+		propietario.setDni("34567890H");
+		propietario.setNombre("Lauri");
+		propietario.setApellido("Lacostra");
 
-		vehiculo.setMatricula("0100BAA");
-		vehiculo.setMarca("Audi");
-		vehiculo.setModelo("A5");
-		vehiculo.setPropietario(aniadir);
+		vehiculoAdded.setMatricula("0100BAA");
+		vehiculoAdded.setMarca("Audi");
+		vehiculoAdded.setModelo("A5");
+		vehiculoAdded.setPropietario(propietario);
 
-		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		int index = Collections.binarySearch(obtenidos, vehiculo);
+		List<Vehiculo> obtenidosNotExist = vdao.getAllVehiculos();
+		int indexNotExist = binarySearch(obtenidosNotExist, vehiculoAdded);
 		
-		assertTrue(index < 0 && vdao.addVehiculo(vehiculo));
+		boolean operacion = vdao.addVehiculo(vehiculoAdded);
+		
+		List<Vehiculo> obtenidosExist = vdao.getAllVehiculos();
+		int indexExist = binarySearch(obtenidosExist, vehiculoAdded);
 
-		vehiculos = (ArrayList<Vehiculo>) obtenidos;
+		assertTrue(indexNotExist < 0 && operacion && indexExist >= 0);
+
+		vehiculos = (ArrayList<Vehiculo>) obtenidosExist;
 	}
 
 	@Test
@@ -165,25 +172,28 @@ public class TestVehiculoDao {
 		vehiculo.setPropietario(aniadir);
 
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		int index = Collections.binarySearch(obtenidos, vehiculo);
-		assertTrue(index >= 0 && !vdao.addVehiculo(vehiculo));
+		int index = binarySearch(obtenidos, vehiculo);
+		
+		boolean operacion = vdao.addVehiculo(vehiculo);
+		
+		assertTrue(index >= 0 && !operacion);
 	}
 
 	@Test
 	public void testUpdateVehiculo_SuccessWhenKeyExists() {
 		Propietario prop = new Propietario();
-		Vehiculo update = new Vehiculo();
+		Vehiculo vehiculoUpdated = new Vehiculo();
 		prop.setDni("34534590J");
 		prop.setNombre("SIWI");
 		prop.setApellido("Hernán");
-		update.setMarca("nissan");
-		update.setMatricula("0000BBB");
-		update.setModelo("350z");
-		update.setPropietario(prop);
+		vehiculoUpdated.setMarca("nissan");
+		vehiculoUpdated.setMatricula("0000BBB");
+		vehiculoUpdated.setModelo("350z");
+		vehiculoUpdated.setPropietario(prop);
 
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		int index = Collections.binarySearch(obtenidos, update);
-		assertTrue(index >= 0 && vdao.updateVehiculo(update));
+		int index = binarySearch(obtenidos, vehiculoUpdated);
+		assertTrue(index >= 0 && vdao.updateVehiculo(vehiculoUpdated));
 		
 		vehiculos = (ArrayList<Vehiculo>) obtenidos;
 	}
@@ -191,18 +201,37 @@ public class TestVehiculoDao {
 	@Test
 	public void testUpdateVehiculo_FailWhenKeyNotExists() {
 		Propietario prop = new Propietario();
-		Vehiculo update = new Vehiculo();
+		Vehiculo vehiculoUpdated = new Vehiculo();
 		prop.setDni("34534590J");
 		prop.setNombre("SIWI");
 		prop.setApellido("Hernán");
-		update.setMarca("nissan");
-		update.setMatricula("1122BCH");
-		update.setModelo("350z");
-		update.setPropietario(prop);
+		vehiculoUpdated.setMarca("nissan");
+		vehiculoUpdated.setMatricula("1122BCH");
+		vehiculoUpdated.setModelo("350z");
+		vehiculoUpdated.setPropietario(prop);
 
 		List<Vehiculo> obtenidos = vdao.getAllVehiculos();
-		int index = Collections.binarySearch(obtenidos, update);
+		int index = binarySearch(obtenidos, vehiculoUpdated);
 		
-		assertFalse(index >= 0 && vdao.updateVehiculo(update));
+		assertTrue(index < 0 && !vdao.updateVehiculo(vehiculoUpdated));
+	}
+	
+	public <T extends Comparable<T>> int binarySearch(List<T> list, T target) {
+	    Collections.sort(list);
+	    int init = 0;
+	    int end = list.size()-1;
+	    int pos = -1;
+
+	    while (init <= end && pos < 0) {
+	        int med = init + (end - init) / 2;
+	        if (list.get(med).compareTo(target) == 0){
+	            pos = med;
+	        } else if (list.get(med).compareTo(target) == -1){
+	            init = med + 1;
+	        } else {
+	        	end = med - 1;
+	        }
+	    }
+	    return pos;
 	}
 }
