@@ -1,0 +1,8 @@
+DAO\VehiculoDAO.class
+IDAO\IPropietarioDAO.class
+DAO\PropietarioDAO.class
+pojo\Vehiculo.class
+main\Main.class
+pojo\Propietario.class
+IDAO\IVehiculoDAO.class
+utils\HibernateUtils.class

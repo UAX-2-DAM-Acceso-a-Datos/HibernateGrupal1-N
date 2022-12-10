@@ -3,12 +3,15 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import DAO.PropietarioDAO;
 import DAO.VehiculoDAO;
 import pojo.Propietario;
 import pojo.Vehiculo;
 
 public class Main {
+	static Logger logger = Logger.getLogger(VehiculoDAO.class);
 
 	public static void main(String[] args) {
 		
@@ -30,17 +33,15 @@ public class Main {
 		v1.setModelo("YZF");
 		v1.setPropietario(p1);
 		
-		//Añadimos los vehiculos en una lista
 		List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
 		vehiculos.add(v1);
 		
-		//Asignamos los vehiculos al propietario
 		p1.setVehiculos(vehiculos);
 		
-				
-		//Se añade el propietario con sus vehiculos
+//		logger.info("[VehiculoDao] [main] – añadiendo propietario con DNI: " + p1.getDni());
 		daoPropietario.addPropietario(p1);
 		
+//		logger.info("[VehiculoDao] [main] – añadiendo vehiculo con matricula: " + v1.getMatricula());
 		daoVehiculo.addVehiculo(v1);
 		
 		System.out.println();
@@ -53,6 +54,8 @@ public class Main {
 		p2.setDni("12345678N");
 		p2.setNombre("Edu");
 		p2.setApellido("L");
+		
+		
 		
 		Vehiculo v3 = new Vehiculo();
 		v3.setMarca("Hondaaaa");
@@ -73,5 +76,11 @@ public class Main {
 		//Obtener lista de todos los vehiculos
 		System.out.println("Obtener lista de vehiculos");
 		daoVehiculo.getAllVehiculos();
+		
+		PropietarioDAO pdao = new PropietarioDAO();
+		List<Propietario> ps = pdao.getAllPropietarios();
+		for (Propietario propietario : ps) {
+			pdao.deletePropietario(propietario.getDni());
+		}
 	}
 }
