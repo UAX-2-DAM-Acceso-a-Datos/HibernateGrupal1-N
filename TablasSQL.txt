@@ -1,0 +1,17 @@
+CREATE DATABASE Vehiculos;
+
+CREATE TABLE Propietarios (
+dni CHAR(9) UNIQUE NOT NULL,
+nombre VARCHAR(30) NOT NULL,
+apellido VARCHAR(50) NOT NULL,
+PRIMARY kEY (dni)
+)ENGINE InnoDB;
+
+CREATE TABLE Vehiculos (
+matricula VARCHAR(8), 
+marca VARCHAR(30), 
+modelo VARCHAR(50), 
+dni CHAR(9) UNIQUE NOT NULL,
+PRIMARY kEY (matricula),
+FOREIGN KEY (dni) REFERENCES Propietarios(dni) ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE InnoDB;
